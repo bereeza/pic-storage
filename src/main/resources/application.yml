@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: "pic-storage"
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: ${MONGO_DB}
+      username: ${MONGO_USER}
+      password: ${MONGO_PASSWORD}
+      authentication-database: admin
+
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: ${CLIENT_ID}
+            client-secret: ${CLIENT_SECRET}
