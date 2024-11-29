@@ -15,6 +15,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 public class Picture {
     @Id
     private String id;
+    private String author;
     private String url;
     private String description;
 }

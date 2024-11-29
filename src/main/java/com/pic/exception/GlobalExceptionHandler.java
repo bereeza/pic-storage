@@ -34,4 +34,15 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity<>(er, HttpStatus.CONFLICT);
     }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<ErrorResponse> handleBadCredentialException(IllegalArgumentException e) {
+        ErrorResponse er = ErrorResponse.builder()
+                .timestamp(LocalDateTime.now())
+                .code(HttpStatus.NOT_FOUND.value())
+                .message(e.getMessage())
+                .build();
+
+        return new ResponseEntity<>(er, HttpStatus.NOT_FOUND);
+    }
 }
